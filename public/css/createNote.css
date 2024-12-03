@@ -1,0 +1,104 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --primary-color: hsl(208, 92%, 54%);
+  --white-color: hsl(0, 0%, 100%);
+  --background-color: rgba(255, 255, 255, 0.8);
+  --box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  --font-family: "Montserrat", sans-serif;
+}
+
+/*=============== BASE STYLES ===============*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background: url('/public/img/img.jpeg') no-repeat center center/cover;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.create-note-container {
+  width: 100%;
+  max-width: 500px;
+  padding: 2rem;
+  background-color: var(--white-color);
+  box-shadow: var(--box-shadow);
+  border-radius: 20px;
+}
+
+.note-box {
+  text-align: center;
+}
+
+.note-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.input-title,
+.input-notes {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: var(--font-family);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input-title:focus,
+.input-notes:focus {
+  border-color: hsl(208, 92%, 64%);
+}
+
+.note-submit-button {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.note-submit-button:hover {
+  background-color: hsl(208, 88%, 50%);
+  transform: translateY(-2px);
+}
+
+/*=============== RESPONSIVE DESIGN ===============*/
+@media screen and (max-width: 768px) {
+  .create-note-container {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+
+  .note-title {
+    font-size: 1.5rem;
+  }
+
+  .input-title,
+  .input-notes {
+    font-size: 0.9rem;
+  }
+
+  .note-submit-button {
+    font-size: 0.9rem;
+  }
+}

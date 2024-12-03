@@ -1,0 +1,128 @@
+/* General Styles */
+:root {
+    --sidebar-bg: hsl(208, 92%, 54%);
+    --main-bg: hsl(0, 0%, 100%);
+    --text-color: hsl(220, 15%, 66%);
+    --title-color: hsl(220, 68%, 4%);
+    --card-bg: hsl(220, 50%, 97%);
+    --card-hover: hsl(208, 88%, 50%);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--main-bg);
+    color: var(--text-color);
+    overflow-x: hidden;
+  }
+  
+  h1, h3 {
+    color: var(--title-color);
+  }
+  
+  /* Dashboard Layout */
+  .dashboard {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    min-height: 100vh;
+  }
+  
+  .sidebar {
+    background-color: var(--sidebar-bg);
+    color: var(--main-bg);
+    padding: 1rem;
+  }
+  
+  .sidebar__title {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .sidebar__menu {
+    list-style: none;
+  }
+  
+  .sidebar__item {
+    margin: 0.5rem 0;
+  }
+  
+  .sidebar__link {
+    color: var(--main-bg);
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    display: block;
+    border-radius: 0.5rem;
+    transition: background 0.3s;
+  }
+  
+  .sidebar__link:hover {
+    background-color: var(--card-hover);
+  }
+  
+  .main-content {
+    padding: 2rem;
+  }
+  
+  .main-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  /* Cards */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .card {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px hsla(0, 0%, 0%, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px hsla(0, 0%, 0%, 0.2);
+  }
+  
+  .card__title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card__desc {
+    font-size: 1rem;
+    color: var(--text-color);
+  }
+  
+  /* Responsive Sidebar */
+  @media screen and (max-width: 768px) {
+    .dashboard {
+      grid-template-columns: 1fr;
+    }
+  
+    .sidebar {
+      position: fixed;
+      width: 100%;
+      height: auto;
+      z-index: 100;
+      text-align: center;
+    }
+  
+    .main-content {
+      margin-top: 200px;
+    }
+  }
+  
