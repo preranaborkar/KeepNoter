@@ -18,7 +18,8 @@ app.use('/img', express.static(path.join(__dirname, 'img')));
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
 
-
+const cors = require('cors');
+app.use(cors());
 
 
 app.use(session({
