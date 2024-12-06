@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Drawing</title>
+  <link rel="stylesheet" href="/css/drawingPad.css">
+</head>
+<body>
+  <div class="create-drawing-container">
+    <div class="drawing-box">
+      
+        <h1 class="drawing-title">Drawing Pad</h1>
+      <div class="tools">
+        <input type="color" id="color-picker" name="color-picker" title="Pick a color">
+        <select id="brush-size" title="Brush Size">
+          <option value="2">Small</option>
+          <option value="5" selected>Medium</option>
+          <option value="10">Large</option>
+        </select>
+        <button id="eraser">Eraser</button>
+        <button id="clear">Clear</button>
+      </div>
+      <canvas id="drawing-pad" name="drawingPad"></canvas>
+      <button id="save" class="save-button">Save Drawing</button>
+      <button  class="save-button" ><a href="/dashboard">Go to Dashboard</a></button>
+    </div>
+  </div>
+
+  <script>
+    // Drawing pad functionality
+    const canvas = document.getElementById("drawing-pad");
+    const ctx = canvas.getContext("2d");
+    const colorPicker = document.getElementById("color-picker");
+    const brushSize = document.getElementById("brush-size");
+    const eraser = document.getElementById("eraser");
+    const clear = document.getElementById("clear");
+    const save = document.getElementById("save");
+
+    // Set canvas dimensions dynamically
+    const setCanvasDimensions = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+      ctx.fillStyle = "#ffffff"; // Background color
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    };
+
+    window.addEventListener("resize", setCanvasDimensions);
+    setCanvasDimensions();
+
+    // Variables for drawing
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+    let brushColor = "#000000";
+    let brushWidth = 5;
+    let isEraser = false;
+
+    // Event listeners for drawing
+    const startDrawing = (e) => {
+      isDrawing = true;
+      [lastX, lastY] = [e.offsetX || e.touches[0].clientX, e.offsetY || e.touches[0].clientY];
+    };
+
+    const draw = (e) => {
+      if (!isDrawing) return;
+      ctx.strokeStyle = isEraser ? "#ffffff" : brushColor;
+      ctx.lineWidth = brushWidth;
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      ctx.beginPath();
+      ctx.moveTo(lastX, lastY);
+      [lastX, lastY] = [e.offsetX || e.touches[0].clientX, e.offsetY || e.touches[0].clientY];
+      ctx.lineTo(lastX, lastY);
+      ctx.stroke();
+    };
+
+    const stopDrawing = () => {
+      isDrawing = false;
+      ctx.beginPath(); // Reset the path
+    };
+
+    // Tools functionality
+    colorPicker.addEventListener("input", (e) => {
+      brushColor = e.target.value;
+      isEraser = false;
+    });
+
+    brushSize.addEventListener("change", (e) => {
+      brushWidth = e.target.value;
+    });
+
+    eraser.addEventListener("click", () => {
+      isEraser = true;
+    });
+
+    clear.addEventListener("click", () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#ffffff"; // Background color
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    });
+
+    save.addEventListener("click", () => {
+      const link = document.createElement("a");
+      link.download = "drawing.png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    });
+
+    canvas.addEventListener("mousedown", startDrawing);
+    canvas.addEventListener("mousemove", draw);
+    canvas.addEventListener("mouseup", stopDrawing);
+    canvas.addEventListener("mouseout", stopDrawing);
+
+    canvas.addEventListener("touchstart", startDrawing);
+    canvas.addEventListener("touchmove", draw);
+    canvas.addEventListener("touchend", stopDrawing);
+  </script>
+</body>
+</html>

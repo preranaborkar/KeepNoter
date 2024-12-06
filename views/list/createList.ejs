@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create List</title>
+  <link rel="stylesheet" href="/css/createList.css">
+</head>
+<body>
+  <div class="create-list-container">
+    <div class="list-box">
+      <h1 class="list-title">Create a List</h1>
+      <form action="/createList" id="list-form"  method="POST">
+        <input 
+          type="text" 
+          id="list-title" 
+          name="title"
+          class="input-title" 
+          placeholder="Enter Title" 
+          required
+        >
+        <div id="list-items" class="list-items">
+          <div class="list-item">
+            <input 
+              type="text" 
+              name="list[]" 
+              class="input-list-item" 
+              placeholder="Add a list item" 
+              required
+            >
+            <button type="button" class="add-button">+</button>
+          </div>
+        </div>
+        <button type="submit" class="save-button">Save List</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript to handle adding list items dynamically
+    const listItemsContainer = document.getElementById("list-items");
+    const addItem = () => {
+      const newItem = document.createElement("div");
+      newItem.classList.add("list-item");
+      newItem.innerHTML = `
+       <input 
+      type="text" 
+      name="list[]" 
+      class="input-list-item" 
+      placeholder="Add a list item" 
+      required
+    >
+     <button type="button" class="add-button">+</button>
+     <button type="button" class="remove-button">-</button>
+      `;
+      listItemsContainer.appendChild(newItem);
+
+      // Add event listener to the new + button
+      newItem.querySelector(".add-button").addEventListener("click", addItem);
+      newItem.querySelector(".remove-button").addEventListener("click", () => {
+        newItem.remove();
+      });
+      
+    };
+
+    // Add initial event listener to the first + button
+    document.querySelector(".add-button").addEventListener("click", addItem);
+  </script>
+</body>
+</html>

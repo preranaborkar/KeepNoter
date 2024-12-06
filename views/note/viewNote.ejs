@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Notes</title>
+  <link rel="stylesheet" href="/css/viewNote.css">
+</head>
+<body>
+  <div class="view-notes-container">
+    <h1 class="notes-heading">My Notes</h1>
+    <div class="notes-list">
+      
+      <% notes.forEach(note => { %>
+        <div class="note-box">
+          <h2 class="note-title"><%= note.title %></h2>
+          <p class="note-content"><%= note.content %></p>
+          <div class="note-actions">
+            <form action="/updateNote/<%= note._id %>">
+              <button type="submit" class="edit-button">Edit</button>
+            </form>
+           <form action="/deleteNote/<%= note._id %>" method="POST">
+            <button type="submit" class="delete-button">Delete</button>
+           </form>
+          </div>
+        </div>
+      <% }); %>
+
+      
+
+      
+      
+    </div>
+  </div>
+</body>
+</html>

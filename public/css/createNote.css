@@ -3,7 +3,7 @@
 
 /*=============== VARIABLES CSS ===============*/
 :root {
-  --primary-color: hsl(208, 92%, 54%);
+  --primary-color: #b95c50;
   --white-color: hsl(0, 0%, 100%);
   --background-color: rgba(255, 255, 255, 0.8);
   --box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;

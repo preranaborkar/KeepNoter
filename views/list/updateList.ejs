@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update List</title>
+  <link rel="stylesheet" href="/css/updateList.css">
+</head>
+<body>
+  <div class="create-list-container">
+    <div class="list-box">
+      <h1 class="list-title">Update List</h1>
+      <form action="/updateList/<%= list._id %>" method="POST" id="list-form">
+        <!-- List Title -->
+        <input 
+          type="text" 
+          id="list-title" 
+          name="title"
+          class="input-title" 
+          placeholder="Enter Title" 
+          value="<%= list.title %>"
+          required
+        >
+
+        <!-- List Items -->
+        <div id="list-items" class="list-items">
+          <!-- Loop through the existing list items and create input fields for each -->
+          <% list.list.forEach(item => { %>
+            <div class="list-item">
+              <input 
+                type="text" 
+                name="list[]" 
+                class="input-list-item" 
+                value="<%= item %>"
+                required
+              >
+              <button type="button" class="remove-button">-</button>
+            </div>
+          <% }) %>
+        </div>
+
+        <!-- Button to add new item -->
+        <button type="button" id="add-item" class="add-button">+</button>
+
+        <!-- Submit Button -->
+        <button type="submit" class="save-button">Save List</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript to handle adding and removing list items dynamically
+    const listItemsContainer = document.getElementById("list-items");
+
+    // Function to add a new list item input field
+    const addItem = () => {
+      const newItem = document.createElement("div");
+      newItem.classList.add("list-item");
+      newItem.innerHTML = `
+        <input 
+          type="text" 
+          name="list[]" 
+          class="input-list-item" 
+          placeholder="Add a list item" 
+          required
+        >
+        <button type="button" class="remove-button">-</button>
+      `;
+      listItemsContainer.appendChild(newItem);
+
+      // Add event listener to the new remove button
+      newItem.querySelector(".remove-button").addEventListener("click", () => {
+        newItem.remove();
+      });
+    };
+
+    // Add event listener to the "+" button to add new list items
+    document.getElementById("add-item").addEventListener("click", addItem);
+
+    // Remove an item when the "-" button is clicked
+    document.querySelectorAll(".remove-button").forEach(button => {
+      button.addEventListener("click", (e) => {
+        e.target.closest(".list-item").remove();
+      });
+    });
+  </script>
+</body>
+</html>

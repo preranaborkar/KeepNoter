@@ -1,0 +1,169 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --primary-color: #b95c50;
+  --secondary-color: #b95c50;
+  --white-color: hsl(0, 0%, 100%);
+  --background-color: rgba(255, 255, 255, 0.8);
+  --box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  --font-family: "Montserrat", sans-serif;
+}
+
+/*=============== BASE STYLES ===============*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background: url('/public/img/img.jpeg') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: var(--primary-color);
+}
+
+.create-list-container {
+  width: 100%;
+  max-width: 500px;
+  padding: 2rem;
+  background-color: var(--background-color);
+  box-shadow: var(--box-shadow);
+  border-radius: 8px;
+}
+
+.list-box {
+  text-align: center;
+}
+
+.list-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.input-title {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: var(--font-family);
+  outline: none;
+}
+
+.list-items {
+  margin-bottom: 1rem;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.input-list-item {
+  flex: 1;
+  padding: 0.8rem;
+  margin-right: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.list-checkbox {
+  margin-right: 0.5rem;
+}
+
+.add-button {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.remove-button {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover,
+.remove-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.save-button {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.save-button:hover {
+  background-color: var(--secondary-color);
+}
+
+/*=============== RESPONSIVE DESIGN ===============*/
+@media screen and (max-width: 768px) {
+  .create-list-container {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+
+  .list-title {
+    font-size: 1.5rem;
+  }
+
+  .input-title,
+  .input-list-item {
+    font-size: 0.9rem;
+  }
+
+  .save-button {
+    font-size: 0.9rem;
+  }
+
+  .add-button {
+    width: 25px;
+    height: 25px;
+    font-size: 1rem;
+  }
+
+  .remove-button {
+    width: 25px;
+    height: 25px;
+    font-size: 1rem;
+  }
+}

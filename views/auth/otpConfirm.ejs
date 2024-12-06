@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OTP Verification</title>
+  <link rel="stylesheet" href="/css/otpverify.css">
+</head>
+<body>
+  <div class="container login">
+    <div class="login__area">
+      <h1 class="login__title">OTP Verification</h1>
+      <p>An OTP has been sent to your email. Please enter the OTP to continue</p>
+      <form action="/otp" method="POST" class="login__form">
+        <div class="login__box">
+          <input 
+            type="text" 
+            name="otp" 
+            class="login__input" 
+            placeholder=" " 
+            maxlength="6" 
+            required>
+          <label for="otp" class="login__label">Enter OTP</label>
+          <i class="login__icon">🔑</i>
+        </div>
+       
+        <button type="submit" class="login__button">Verify OTP</button>
+      </form>
+      
+      <p class="login__switch">Haven't received OTP? 
+        <button type="button"><a href="/register">Resend OTP</a></button>
+      </p>
+                       <!-- Display error message if error exists -->
+                       <% if (typeof error !== 'undefined' && error) { %>
+                        <div id="error-message" class="error-message"><p><%= error %></p></div>
+                      <% } %>
+    </div>
+  </div>
+
+ 
+</body>
+</html>

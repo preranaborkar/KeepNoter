@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+
+  <title>Reset Password</title>
+  <link rel="stylesheet" href="/css/forgot.css">
+</head>
+<body>
+  <div class="container login">
+    <div class="login__area">
+      <h1 class="login__title">Reset Password</h1>
+      <p>Enter your new password to reset your account credentials.</p>
+      <form action="/resetpassword" method="POST" class="login__form">
+        <div class="login__box">
+            <input type="email" id="email" required placeholder=" " name="email" class="login__input">
+            <label for="email" class="login__label">Email</label>
+
+            <i class="ri-mail-fill login__icon"></i>
+        </div>
+        <!-- New Password Field -->
+        <div class="login__box">
+          <input 
+            type="password" 
+            name="new_password" 
+            class="login__input" 
+            placeholder=" " 
+            minlength="8" 
+            required>
+          <label for="new_password" class="login__label">New Password</label>
+          <i class="login__icon">🔒</i>
+        </div>
+        
+        <!-- Confirm Password Field -->
+        <div class="login__box">
+          <input 
+            type="password" 
+            name="confirm_password" 
+            class="login__input" 
+            placeholder=" " 
+            minlength="8" 
+            required>
+          <label for="confirm_password" class="login__label">Confirm Password</label>
+          <i class="login__icon">🔒</i>
+        </div>
+        
+        <button type="submit" class="login__button">Reset Password</button>
+      </form>
+      
+      <!-- Display error message if exists -->
+      <% if (typeof error !== 'undefined' && error) { %>
+        <div id="error-message" class="error-message"><p><%= error %></p></div>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>

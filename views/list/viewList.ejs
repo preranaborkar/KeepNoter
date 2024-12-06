@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Lists</title>
+  <link rel="stylesheet" href="/css/viewList.css">
+</head>
+<body>
+  <div class="view-list-container">
+    <h1 class="list-heading">My Lists</h1>
+    <div class="list-container">
+      <!-- Lists will be dynamically added here -->
+      <% lists.forEach(function(list) { %>
+        <div class="list-box">
+          <h2 class="list-title"><%= list.title %></h2>
+          <ul class="list-items">
+            <% if (list.list && list.list.length > 0) { %>
+              <% list.list.forEach(function(item) { %>
+                <li><%= item %></li>
+              <% }); %>
+            <% } else { %>
+              <li>No items available</li>
+            <% } %>
+          </ul>
+          <div class="list-actions">
+            <form action="/updateList/<%= list._id %>"><button type="submit" class="edit-button">Edit</button></form>
+            <form action="/deleteList/<%= list._id %>"><button type="submit" class="delete-button">Delete</button></form>
+          </div>
+        </div>
+      <% }); %>
+      
+      <!-- Add more lists dynamically -->
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap");
+
+/*=============== VARIABLES ===============*/
+:root {
+  --primary-color: #b95c50;
+  --secondary-color: #b95c50;
+  --white-color: hsl(0, 0%, 100%);
+  --background-color: #DEB3AD;
+  --box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  --font-family: "Montserrat", sans-serif;
+}
+
+/*=============== BASE STYLES ===============*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--white-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.update-note-container {
+  width: 90%;
+  max-width: 600px;
+  background-color: var(--background-color);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+}
+
+.update-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.update-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.form-input,
+.form-textarea {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  background-color: var(--white-color);
+  color: #333;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 5px var(--secondary-color);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.update-button,
+.cancel-button {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.update-button {
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+}
+
+.update-button:hover {
+  background-color: #DEB3AD;
+}
+
+.cancel-button {
+  background-color: hsl(0, 68%, 56%);
+  color: var(--white-color);
+  text-decoration: none;
+}
+
+.cancel-button:hover {
+  background-color: hsl(0, 68%, 50%);
+}
+
+/*=============== RESPONSIVE DESIGN ===============*/
+@media screen and (max-width: 768px) {
+  .update-heading {
+    font-size: 1.5rem;
+  }
+
+  .form-input,
+  .form-textarea {
+    font-size: 0.9rem;
+  }
+
+  .update-button,
+  .cancel-button {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Note</title>
+  <link rel="stylesheet" href="/css/createNote.css">
+</head>
+<body>
+  <div class="create-note-container">
+    <div class="note-box">
+      <h1 class="note-title">Create a Note</h1>
+      <form action="/createNote" method="POST">
+        <input
+          type="text"
+          name="title"
+          class="input-title"
+          placeholder="Enter Title"
+          required
+        >
+        <textarea
+          name="content"
+          class="input-notes"
+          rows="10"
+          placeholder="Write your notes here..."
+          required
+        ></textarea>
+        <button type="submit" class="note-submit-button">Save Note</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

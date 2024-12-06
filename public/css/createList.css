@@ -3,8 +3,8 @@
 
 /*=============== VARIABLES CSS ===============*/
 :root {
-  --primary-color: hsl(208, 92%, 54%);
-  --secondary-color: hsl(208, 92%, 64%);
+  --primary-color: #b95c50;
+  --secondary-color: #b95c50;
   --white-color: hsl(0, 0%, 100%);
   --background-color: rgba(255, 255, 255, 0.8);
   --box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
@@ -98,6 +98,23 @@ body {
   transition: background-color 0.3s ease;
 }
 
+
+.remove-button{
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+
+}
 .add-button:hover {
   background-color: var(--secondary-color);
 }

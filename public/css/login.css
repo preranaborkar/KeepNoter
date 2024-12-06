@@ -5,8 +5,8 @@
 :root {
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
-  --first-color: hsl(208, 92%, 54%);
-  --first-color-alt: hsl(208, 88%, 50%);
+  --first-color: #B95C50;
+  --first-color-alt: #de847b;
   --title-color: hsl(220, 68%, 4%);
   --white-color: hsl(0, 0%, 100%);
   --text-color: hsl(220, 15%, 66%);
@@ -350,4 +350,19 @@ img {
   .login__img {
     transform: translate(0rem, 0rem);
   }
+}
+
+.error-message{
+  margin-top: 20px;
+  border: 1px solid black;
+ border-radius: 10px;
+  align-items: center;
+  width: 300px;
+  padding: 2px;
+  background-color: var(--first-color);
+  margin-left: 40px;
+  color: white;
+}
+.error-message p{
+  text-align: center;
 }
